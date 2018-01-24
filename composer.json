@@ -1,0 +1,25 @@
+{
+    "name": "lorddashme/php-strong-password-generator",
+    "description": "To generate unique strings.",
+    "version": "1.0.0",
+    "keywords": ["Generate", "Strong Password"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Clifford Reyes",
+            "email": "reyesjoshuaclifford@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "~1.0",
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LordDashMe\\StrongPasswordGenerator\\": "src/"
+        }
+    }
+}
