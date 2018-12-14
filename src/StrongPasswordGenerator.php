@@ -1,46 +1,68 @@
 <?php
 
+/*
+ * This file is part of the Strong Pasword Generator.
+ *
+ * (c) Joshua Clifford Reyes <reyesjoshuaclifford@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace LordDashMe\StrongPasswordGenerator;
 
+/**
+ * The Strong Password Generator Class. 
+ *
+ * A simple package that generate strong random characters that can be use for password.
+ * 
+ * @author Joshua Clifford Reyes <reyesjoshuaclifford@gmail.com>
+ */
 class StrongPasswordGenerator
 {
-    protected $length = 0;
-
-    protected $generatedString = '';
+    private $length = 0;
+    private $payload = '';
 
     public function __construct($length = 10)
+    {
+        $this->length($length);
+    }
+
+    public function length($length)
     {
         $this->length = $length;
     }
 
     public function generate()
     {
-        $characters = $this->characters();
+        $content = $this->acceptedCharacters();
     
-        $charactersLength = strlen($characters) - 1;
+        $acceptedCharacterslength = strlen($content) - 1;
         
-        $randomString = '';
-        
-        for ($i = 0; $i < $this->length; $i++) {
-            
-            $number = rand(0, $charactersLength);
-            $jumbleNumber = rand(0, $number);
-            
-            $randomString .= $characters[$jumbleNumber];
-        }
-        
-        $this->generatedString = $randomString;
+        $this->randomString($content, $acceptedCharacterslength);
 
         return $this;
     }
 
-    protected function characters()
+    private function randomString($content, $acceptedCharacterslength)
+    {
+        $randomString = '';
+        
+        for ($i = 0; $i < $this->length; $i++) {
+            $randomPick = rand(0, $acceptedCharacterslength);
+            $randomString .= $content[$randomPick];
+        }
+        
+        $this->payload = $randomString;
+    }
+
+    private function acceptedCharacters()
     {
         return "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~@#$%^&*()_+-=[];\,./{}:\"|<>?";
     }
 
     public function get()
     {
-        return $this->generatedString;
+        return $this->payload;
     }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
     bootstrap="tests/bootstrap.php"
     backupGlobals="false"
     backupStaticAttributes="false"
@@ -13,26 +15,24 @@
     stopOnFailure="false"
     syntaxCheck="true"
     verbose="true"
-    stderr="true">
-    
-    <!-- 
-        <logging>
-            <log type="coverage-html" target="build/coverage" title="coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70"/>
-            <log type="coverage-clover" target="build/logs/clover.xml"/>
-            <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
-        </logging> 
-    -->
-
+    stderr="true"
+>
+    <php>
+        <ini name="error_reporting" value="E_ALL" />
+    </php>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
-    
     <testsuites>
-        <testsuite name="strong-password-generator">
-            <directory>./tests</directory>
+        <testsuite name="php-strong-password-generator">
+            <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
-
+    <logging>
+        <log type="coverage-html" target="build/logs/html/"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+    </logging>
 </phpunit>

@@ -1,21 +1,23 @@
 {
     "name": "lorddashme/php-strong-password-generator",
-    "description": "To generate unique strings.",
-    "version": "1.0.0",
-    "keywords": ["Generate", "Strong Password"],
+    "description": "A simple package that generate strong random characters that can be use for password.",
+    "keywords": ["random", "generate-strong", "password"],
+    "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/lorddashme/php-strong-password-generator",
     "authors": [
         {
             "name": "Joshua Clifford Reyes",
-            "email": "reyesjoshuaclifford@gmail.com"
+            "email": "reyesjoshuaclifford@gmail.com",
+            "homepage": "https://lorddashme.github.io/"
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=5.6 || >=7.0 || >=7.1 || >=7.2"
     },
     "require-dev": {
-        "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
+        "mockery/mockery": "1.*",
+        "phpunit/phpunit": "5.* || 6.* || 7.*"
     },
     "autoload": {
         "psr-4": {

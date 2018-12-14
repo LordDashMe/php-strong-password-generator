@@ -1,5 +1,7 @@
 <?php
 
+namespace LordDashMe\StrongPasswordGenerator\Tests\Unit;
+
 use PHPUnit\Framework\TestCase;
 use LordDashMe\StrongPasswordGenerator\StrongPasswordGenerator;
 
@@ -8,29 +10,31 @@ class StrongPasswordGeneratorTest extends TestCase
     /**
      * @test
      */
-    public function it_can_load_concrete_class()
+    public function it_should_load_strong_password_generator_class()
     {
-        $this->assertInstanceOf(StrongPasswordGenerator::class, $this->concrete());
+        $this->assertInstanceOf(StrongPasswordGenerator::class, new StrongPasswordGenerator());
     }
 
     /**
      * @test
      */
-    public function it_can_generate_strong_random_string_with_given_length()
+    public function it_should_generate_random_string_base_on_the_given_length_using_setter_method()
     {
-        $randomString = $this->concrete([25])
-            ->generate()
-            ->get();
+        $strongPasswordGenerator = new StrongPasswordGenerator();
+        $strongPasswordGenerator->length(25);
+        $strongPasswordGenerator->generate();
 
-        $this->assertEquals(25, strlen($randomString));
+        $this->assertEquals(25, strlen($strongPasswordGenerator->get()));
     }
 
-    protected function concrete($args = array())
+    /**
+     * @test
+     */
+    public function it_should_generate_random_string_base_on_the_given_length_using_class_constructor()
     {
-        if (is_array($args)) {
-            return new StrongPasswordGenerator(...$args);
-        }
+        $strongPasswordGenerator = new StrongPasswordGenerator(23);
+        $strongPasswordGenerator->generate();
 
-        return new StrongPasswordGenerator();
+        $this->assertEquals(23, strlen($strongPasswordGenerator->get()));
     }
 }
