@@ -27,8 +27,6 @@ composer require lorddashme/php-strong-password-generator
 
 include __DIR__  . '/vendor/autoload.php';
 
-namespace Demo\MyClass;
-
 use LordDashMe\StrongPasswordGenerator\StrongPasswordGenerator;
 
 $strongPasswordGenerator = new StrongPasswordGenerator();
