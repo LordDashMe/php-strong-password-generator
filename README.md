@@ -31,10 +31,13 @@ use LordDashMe\StrongPasswordGenerator\StrongPasswordGenerator;
 
 // Initialize the Strong Password Generator main class.
 $strongPasswordGenerator = new StrongPasswordGenerator();
+
 // Set the character length output.
 $strongPasswordGenerator->length(25);
+
 // Execute the generation process function.
 $strongPasswordGenerator->generate();
+
 // Get the generated output.
 $strongPasswordGenerator->get(); // "abcde12345..."
 ```
