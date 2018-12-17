@@ -29,10 +29,14 @@ include __DIR__  . '/vendor/autoload.php';
 
 use LordDashMe\StrongPasswordGenerator\StrongPasswordGenerator;
 
+// Initialize the Strong Password Generator main class.
 $strongPasswordGenerator = new StrongPasswordGenerator();
+// Set the character length output.
 $strongPasswordGenerator->length(25);
+// Execute the generation process function.
 $strongPasswordGenerator->generate();
-$strongPasswordGenerator->get(); // echo "abcde12345..."
+// Get the generated output.
+$strongPasswordGenerator->get(); // "abcde12345..."
 ```
 
 ## License
